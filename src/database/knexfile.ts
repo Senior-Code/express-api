@@ -1,6 +1,6 @@
 import { Knex } from "knex";
 import { config } from "dotenv";
-config({ path: "../../.env" });
+config();
 
 interface IKnexConfig {
   [key: string]: Knex.Config;

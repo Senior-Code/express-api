@@ -1,13 +1,10 @@
 import { Knex } from "knex";
 
 export async function up(knex: Knex): Promise<void> {
-  return knex.schema.createTable("users", (table) => {
+  return knex.schema.createTable("products", (table) => {
     table.increments("id").index();
     table.string("name");
-    table.string("username");
-    table.string("password");
-    table.enum("type", ["admin", "user"]).defaultTo("user");
-    table.string("token");
+    table.string("description");
     table.timestamps(true, true);
   });
 }
