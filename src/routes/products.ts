@@ -7,7 +7,7 @@ import updateProduct from "../function/products/updateProduct";
 
 const router = Router();
 router
-  .get("/", productList)
+  .get("/list", productList)
   .post("/", createProduct)
   .get("/:id", readProduct)
   .put("/:id", updateProduct)

@@ -10,7 +10,6 @@ export default async (req: Request, res: Response) => {
   const result = await Knex.table("users")
     .andWhere({ username })
     .first("id", "name", "username", "password", "type");
-  console.log(result);
   const match = await bcrypt.compare(password, result.password);
   if (!result || !match)
     return res.status(401).json({
@@ -19,9 +18,7 @@ export default async (req: Request, res: Response) => {
   if (match) {
     delete result.password;
     const data = result;
-    var token = jwt.sign(data, process.env.PRIVATE_KEY as Secret, {
-      algorithm: "HS256",
-    });
+    var token = jwt.sign(data, process.env.PRIVATE_KEY as Secret);
     await Knex.table("users").where({ id: result.id }).update({ token });
     return res.status(200).json({
       token: token,
