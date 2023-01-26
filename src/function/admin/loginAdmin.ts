@@ -3,7 +3,7 @@ import Knex from "../../database/db";
 import bcrypt from "bcrypt";
 import jwt, { Secret } from "jsonwebtoken";
 import { config } from "dotenv";
-config();
+config({ path: ".env" });
 
 export default async (req: Request, res: Response) => {
   const { username, password } = req.body;

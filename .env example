@@ -1,0 +1,3 @@
+MYSQL=mysql://[username]:[password]@[localhost]:[port]/[database]
+PORT=[listen port]
+PRIVATE_KEY=[set private key]
